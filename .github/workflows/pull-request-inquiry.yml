@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened]
+jobs:
+  dump_event_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Event
+        env: 
+          GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
+        run: |
+          echo: "Github Event:"
+          echo: "$GITHUB_EVENT_CONTEXT"
