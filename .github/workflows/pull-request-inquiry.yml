@@ -1,3 +1,5 @@
+name: Pull Request Information
+
 on:
   pull_request:
     branches:
@@ -11,5 +13,5 @@ jobs:
         env: 
           GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
         run: |
-          echo: "Github Event:"
-          echo: "$GITHUB_EVENT_CONTEXT"
+          echo "Github Event:"
+          echo "$GITHUB_EVENT_CONTEXT"
